@@ -17,13 +17,12 @@ class Recipe(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     recipe_name = db.Column(db.String(50), unique=True, nullable=False)
     recipe_notes = db.Column(db.Text, nullable=False)
-    recipe_cuisine = db.Column(db.String)
+    recipe_cuisine = db.Column(db.String, nullable=False)
     cook_time = db.Column(db.Integer, nullable=False)
     recipe_location = db.Column(db.Text, nullable=False)
     family_friendly = db.Column(db.Boolean, default=False, nullable=False)
     recipe_healthy = db.Column(db.Boolean, default=False, nullable=False)
     date_added = db.Column(db.Date, nullable=False)
-    added_by = db.Column(db.String(20), nullable=True)
     category_id = db.Column(db.Integer, db.ForeignKey("category.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
