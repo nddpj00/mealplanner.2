@@ -7,4 +7,22 @@ body {
 .main-header {
     margin-top: 15vh;
     text-align: center;
+    margin-bottom: 7vh;
+}
+
+.top-row {
+    margin-bottom: 82.5px;
+}
+
+.card-cont {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.bottom-row{
+    margin-bottom: 20px;
+}
+
+.card-body{
+    text-align: center;
 }
