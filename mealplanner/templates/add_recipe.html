@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-md main-header">
+    <h1 class="center-align">Add Recipe</h1>
+</div>
+
+
+
+<div class="container">
+    <form class="row g-3"  method="POST" action="{{ url_for('add_recipe') }}">
+        <!-- task name -->
+        <div class="row mb-3">
+            <div class="col-1">
+                <i class="fas fa-pencil-alt prefix"></i>
+            </div>
+            <div class="col-6">
+                <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" class="form-control" placeholder=" Recipe Name" required>
+                <label for="recipe_name" class="form-label"></label>
+            </div>
+        </div>
+        <!-- recipe notes -->
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <i class="fas fa-align-left prefix"></i>
+                <textarea id="recipe_notes" name="recipe_notes" minlength="5" maxlength="200"
+                    type="text" class="form-control"  placeholder="Recipe Notes" required></textarea>
+                <label for="recipe_notes" class="form-label"></label>
+            </div>
+        </div>
+
+        <!-- recipe cuisine -->
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <i class="fas fa-pencil-alt prefix"></i>
+                <input id="recipe_cuisine" name="recipe_cuisine" minlength="5" maxlength="50" type="text" class="form-control" required>
+                <label for="recipe_cuisine" class="form-label">Recipe cuisine</label>
+            </div>
+        </div>
+
+        <!-- recipe location -->
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <i class="fas fa-align-left prefix"></i>
+                <textarea id="recipe_location" name="recipe_location" minlength="5" maxlength="200"
+                    type="text" class="form-control" placeholder="Recipe Location, url or cookbook inc page number" required></textarea>
+                <label for="recipe_location" class="form-label"></label>
+            </div>
+        </div>
+
+
+        <!-- cook time -->
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <i class="fas fa-pencil-alt prefix"></i>
+                <input id="cook_time" name="cook_time" type="number" class="form-control" required>
+                <label for="cook_time" class="form-label">Cook Time</label>
+            </div>
+        </div>
+
+        <!-- family friendly -->
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="form-check form-switch">
+                    <i class="fas fa-exclamation-circle prefix"></i>
+                    <label for="family_friendly" class="form-check-label">
+                        <input id="family_friendly" name="family_friendly" type="checkbox" class="form-check-label" role="switch" >
+                        Family-Friendly?
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- healthy -->
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="form-check form-switch">
+                    <i class="fas fa-exclamation-circle prefix"></i>
+                    <label for="healthy" class="form-check-label">
+                        <input id="healthy" name="healthy" type="checkbox" class="form-check-label" role="switch" >
+                        Healthy?
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- category id -->
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <i class="fas fa-folder-open prefix"></i>
+                <select id="category_id" name="category_id" class= "form-select mb-3" required>
+                    <option value="" disabled selected>Choose Category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.food_category }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category_id" class="form label">Food Category</label>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col-sm-9 center-align">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    Add Recipe <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
