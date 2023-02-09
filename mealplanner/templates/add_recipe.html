@@ -12,7 +12,7 @@
         <!-- task name -->
         <div class="row mb-3">
             <div class="col-1">
-                <i class="fas fa-pencil-alt prefix"></i>
+                <i class="fas fa-pencil-alt"></i>
             </div>
             <div class="col-11">
                 <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" class="form-control" placeholder=" Recipe Name" required>
@@ -22,7 +22,7 @@
         <!-- recipe notes -->
         <div class="row mb-3">
             <div class="col-1">
-                <i class="fas fa-align-left prefix"></i>
+                <i class="fas fa-align-left"></i>
             </div>
             <div class="col-11">
                 <textarea id="recipe_notes" name="recipe_notes" minlength="5" maxlength="200"
@@ -34,7 +34,7 @@
         <!-- recipe cuisine -->
         <div class="row mb-3">
             <div class="col-1">
-                <i class="fas fa-pencil-alt prefix"></i>
+                <i class="fas fa-light fa-earth-asia fa-lg icon-center"></i>
             </div>
             <div class="col-11">
                 <input id="recipe_cuisine" placeholder="Recipe Cuisine" name="recipe_cuisine" minlength="5" maxlength="50" type="text" class="form-control" required>
@@ -45,7 +45,7 @@
         <!-- recipe location -->
         <div class="row mb-3">
             <div class="col-1">
-                <i class="fas fa-align-left prefix"></i>
+                <i class="fa-solid fa-magnifying-glass-arrow-right fa-lg"></i>
             </div>
             <div class="col-11">
                 <textarea id="recipe_location" name="recipe_location" minlength="5" maxlength="200"
@@ -66,30 +66,8 @@
             </div>
         </div>
 
-        <!-- family friendly -->
-        <div class="row mb-3">
-            <div class="col-1 ">
-                <i class="fas fa-pencil-alt prefix"></i>
-            </div>
-            <div class="form-check form-switch col-11">
-                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Family-Friendly?</label>
-            </div>
-        </div>
-
-        <!-- healthy -->
-        <div class="row mb-3">
-            <div class="col-1 ">
-                <i class="fas fa-pencil-alt prefix"></i>
-            </div>
-            <div class="form-check form-switch col-11">
-                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Healthy?</label>
-            </div>
-        </div>
-
         <!-- category id -->
-        <div class="row mb-3">
+        <div class="row">
             <div class="col-1">
                 <i class="fas fa-folder-open prefix"></i>
             </div>
@@ -103,14 +81,38 @@
                 <label for="category_id" class="form label"></label>
             </div>
         </div>
-        <!-- submit button -->
-        <div class="row">
-            <div class="col-11 center-align">
-                <button type="submit" class="btn btn-primary btn-lg">
-                    Add Recipe <i class="fas fa-plus-square right"></i>
-                </button>
+
+        <!-- family friendly -->
+        <div class="row mb-4">
+            <div class="col-1 ">
+                <i class="fas fa-pencil-alt prefix"></i>
+            </div>
+            <div class="form-check form-switch col-4">
+                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Family-Friendly?</label>
             </div>
         </div>
+            <!-- healthy -->
+        <div class="row mb-4">
+            <div class="col-1 ">
+                <i class="fas fa-pencil-alt prefix"></i>
+            </div>
+            <div class="form-check form-switch col-4">
+                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Healthy?</label>
+            </div>
+        </div>
+
+        
+        <!-- submit button -->
+        <div class="d-grid col-6 mx-auto">
+            <button type="submit" class="btn btn-lg">
+                Add Recipe <i class="fas fa-plus-square right"></i>
+            </button>
+        </div>
+
+
+        
     </form>
 </div>
 {% endblock %}

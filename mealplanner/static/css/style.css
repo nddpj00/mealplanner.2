@@ -8,6 +8,10 @@ body {
     background-color: #d9ca0c!important;
 }
 
+.navbar-toggler{
+    margin-right:16px ;
+}
+
 .navbar-brand{
     margin-left: 35px;
     font-family: 'Volkhov', serif;
@@ -17,7 +21,6 @@ body {
 .nav-link{
     font-family: 'Volkhov', serif;
     font-size: 20px;
-    font-weight: 600;
 }
 
 .dropdown {
@@ -61,5 +64,9 @@ margin-right: 60px;
 
 .toggle{
     margin-left: 3.25rem;
+}
+
+.icon-center{
+    text-align: center;
 }
 
