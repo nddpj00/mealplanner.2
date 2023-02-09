@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -33,7 +36,7 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{  url_for('home') }}">Food
+                            <a class="nav-link" aria-current="page" href="{{  url_for('home') }}">Food
                                 Categories</a>
                         </li>
                         <li class="nav-item">
@@ -43,14 +46,14 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Categories
+                                Recipes
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">vegetarian Meals </a></li>
-                                <li><a class="dropdown-item" href="#">White Meat Meals</a></li>
-                                <li><a class="dropdown-item" href="#">Red Meat Meals</a></li>
-                                <li><a class="dropdown-item" href="#">Oily Fish Meals</a></li>
-                                <li><a class="dropdown-item" href="#">White Fish Meals</a></li>
+                                <li><a class="dropdown-item" href="#">Vegetarian </a></li>
+                                <li><a class="dropdown-item" href="#">White Meat</a></li>
+                                <li><a class="dropdown-item" href="#">Red Meat</a></li>
+                                <li><a class="dropdown-item" href="#">Oily-Fish</a></li>
+                                <li><a class="dropdown-item" href="#">White Fish</a></li>
                             </ul>
                         </li>
                         </li>
@@ -68,14 +71,14 @@
 
     <div class="b-example-divider"></div>
 
-    <div class="container fixed-bottom">
+    <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                     <svg class="bi" width="30" height="24">
                         <use xlink:href="" /></svg>
                 </a>
-                <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Company, Inc</span>
+                <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Company, Inc</span>
             </div>
 
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
