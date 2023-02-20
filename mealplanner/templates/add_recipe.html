@@ -32,13 +32,18 @@
         </div>
 
         <!-- recipe cuisine -->
-        <div class="row mb-3">
+        <div class="row">
             <div class="col-1">
-                <i class="fas fa-light fa-earth-asia fa-lg icon-center"></i>
+                <i class="fas fa-folder-open prefix"></i>
             </div>
             <div class="col-11">
-                <input id="recipe_cuisine" placeholder="Recipe Cuisine" name="recipe_cuisine" minlength="5" maxlength="50" type="text" class="form-control" required>
-                <label for="recipe_cuisine" class="form-label"></label>
+                <select id="cuisine_id" name="cuisine_id" class= "form-select mb-3" required>
+                    <option value="" disabled selected>Choose Food Cuisine</option>
+                    {% for cuisine in cuisines %}
+                        <option value="{{ cuisine.id }}">{{ cuisine.recipe_cuisine }}</option>
+                    {% endfor %}
+                </select>
+                <label for="cuisine_id" class="form label"></label>
             </div>
         </div>
 
