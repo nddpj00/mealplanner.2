@@ -8,15 +8,17 @@
 
 
 <div class="container" id ="recipeCont">
-    <form class="row g-3"  method="POST" action="{{ url_for('add_recipe') }}">
-        <!-- task name -->
+    <form class="row g-3"   method="POST" action="{{ url_for('add_recipe') }}">
+        <!-- recipe name -->
         <div class="row mb-3">
             <div class="col-1">
                 <i class="fas fa-pencil-alt"></i>
             </div>
-            <div class="col-11">
-                <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" class="form-control" placeholder=" Recipe Name" required>
-                <label for="recipe_name" class="form-label"></label>
+            <div class=" col-11">
+                <div class="form-floating">
+                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" class="form-control" placeholder=" Recipe Name" required>
+                    <label for="recipe_name" class="form-label">Recipe Name</label>
+                </div>
             </div>
         </div>
         <!-- recipe notes -->
@@ -24,10 +26,27 @@
             <div class="col-1">
                 <i class="fas fa-align-left"></i>
             </div>
+            <div class=" col-11">
+                <div class="form-floating">
+                    <textarea id="recipe_notes" name="recipe_notes" minlength="5" maxlength="200"
+                        type="text" class="form-control"  placeholder="Recipe Notes" required></textarea>
+                    <label for="recipe_notes" class="form-label">Recipe Notes</label>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- recipe location -->
+        <div class="row mb-3">
+            <div class="col-1">
+                <i class="fa-solid fa-magnifying-glass-arrow-right fa-lg"></i>
+            </div>
             <div class="col-11">
-                <textarea id="recipe_notes" name="recipe_notes" minlength="5" maxlength="200"
-                    type="text" class="form-control"  placeholder="Recipe Notes" required></textarea>
-                <label for="recipe_notes" class="form-label"></label>
+                <div class="form-floating">
+                    <textarea id="recipe_location" name="recipe_location" minlength="5" maxlength="200"
+                        type="text" class="form-control" placeholder="Recipe location" required></textarea>
+                    <label for="recipe_location" class="form-label">Recipe Location, url or cookbook inc. page number</label>
+                </div>
             </div>
         </div>
 
@@ -36,26 +55,31 @@
             <div class="col-1">
                 <i class="fas fa-folder-open prefix"></i>
             </div>
-            <div class="col-11">
-                <select id="cuisine_id" name="cuisine_id" class= "form-select mb-3" required>
-                    <option value="" disabled selected>Choose Food Cuisine</option>
-                    {% for cuisine in cuisines %}
+            <div class=" col-11">
+                    <select id="cuisine_id" name="cuisine_id" class= "form-select mb-3" required>
+                        <option value="" disabled selected>Cuisine</option>
+                        {% for cuisine in cuisines %}
                         <option value="{{ cuisine.id }}">{{ cuisine.recipe_cuisine }}</option>
-                    {% endfor %}
-                </select>
-                <label for="cuisine_id" class="form label"></label>
+                        {% endfor %}
+                    </select>
+                    <label for="cuisine_id" class="form label"></label>
             </div>
         </div>
+        
 
-        <!-- recipe location -->
-        <div class="row mb-3">
+        <!-- category id -->
+        <div class="row">
             <div class="col-1">
-                <i class="fa-solid fa-magnifying-glass-arrow-right fa-lg"></i>
+                <i class="fas fa-folder-open prefix"></i>
             </div>
             <div class="col-11">
-                <textarea id="recipe_location" name="recipe_location" minlength="5" maxlength="200"
-                    type="text" class="form-control" placeholder="Recipe Location, url or cookbook inc page number" required></textarea>
-                <label for="recipe_location" class="form-label"></label>
+                <select id="category_id" name="category_id" class= "form-select mb-3" required>
+                    <option value="" disabled selected>Food Category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.food_category }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category_id" class="form label"></label>
             </div>
         </div>
 
@@ -65,27 +89,46 @@
             <div class="col-1">
                 <i class="fas fa-pencil-alt prefix"></i>
             </div>
-            <div class="col-11">
-                <input id="cook_time" name="cook_time" type="number" class="form-control" placeholder="Cook Time" required>
-                <label for="cook_time" class="form-label"></label>
+           
+            <div class="col-2">
+                <select class="form-select form-floating" id="cook_time" name="cook_time[]" aria-label="select hours for cooking time">
+                    <option value="0"selected>0 Hours</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                
+            </div>
+            <div class="col-2">
+                <select class="form-select form-floating" id="cook_time" name="cook_time[]"  aria-label="select minutes for cooking time">
+                    <option selected value="0">0 Minutes</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
+                    <option value="55">55</option>
+                    
+                </select>
+                
+            </div>
+            <div class="col-2">
+                    <label for="cook_time" class="form-label form-floating">Cook Time</label>
             </div>
         </div>
 
-        <!-- category id -->
-        <div class="row">
-            <div class="col-1">
-                <i class="fas fa-folder-open prefix"></i>
-            </div>
-            <div class="col-11">
-                <select id="category_id" name="category_id" class= "form-select mb-3" required>
-                    <option value="" disabled selected>Choose Food Category</option>
-                    {% for category in categories %}
-                        <option value="{{ category.id }}">{{ category.food_category }}</option>
-                    {% endfor %}
-                </select>
-                <label for="category_id" class="form label"></label>
-            </div>
-        </div>
 
         <!-- family friendly -->
         <div class="row mb-4">
@@ -93,8 +136,8 @@
                 <i class="fas fa-pencil-alt prefix"></i>
             </div>
             <div class="form-check form-switch col-4">
-                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Family-Friendly?</label>
+                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
             </div>
         </div>
             <!-- healthy -->
@@ -103,8 +146,8 @@
                 <i class="fas fa-pencil-alt prefix"></i>
             </div>
             <div class="form-check form-switch col-4">
-                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Healthy?</label>
+                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
             </div>
         </div>
 

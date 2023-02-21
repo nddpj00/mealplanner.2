@@ -27,7 +27,7 @@ class Recipe(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     recipe_name = db.Column(db.String(50), unique=True, nullable=False)
     recipe_notes = db.Column(db.Text, nullable=False)
-    cook_time = db.Column(db.Integer, nullable=False)
+    cook_time = db.Column(db.String(20), nullable=False)
     recipe_location = db.Column(db.Text, nullable=False)
     family_friendly = db.Column(db.Boolean, default=False, nullable=False)
     recipe_healthy = db.Column(db.Boolean, default=False, nullable=False)

@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for
 from mealplanner import app, db
 from mealplanner.models import Category, Recipe, Cuisine
+from sqlalchemy.sql import func
 
 
 @app.route("/")
@@ -24,7 +25,7 @@ def add_recipe():
             recipe_location=request.form.get("recipe_location"),
             family_friendly=bool(True if request.form.get("family_friendly") else False),
             recipe_healthy=bool(True if request.form.get("recipe_healthy") else False),
-            date_added=request.form.get("date_added"),
+            date_added=func.now(),
             category_id=request.form.get("category_id"),
             cuisine_id=request.form.get("cuisine_id")
         )
