@@ -13,26 +13,27 @@
     </div>
 </div>
 
-
+{% for ofish in ofish_recipe %}
 <div class="accordion" id="accordionExample">
-    {% for ofish in ofish_recipe %}
+    
     <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-            aria-expanded="true" aria-controls="collapseOne">
+        <h2 class="accordion-header" id="heading{{ofish.id}}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Arr{{ofish.id}}"
+            aria-expanded="false" aria-controls="Arr{{ofish.id}}">
                 {{ ofish.recipe_name}}  |  {{ ofish.category}}
             </button>
         </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+
+        <div id="body{{ofish.id}}" class="accordion-collapse collapse show" aria-labelledby="heading{{ ofish.id}}"
             data-bs-parent="#accordionExample">
             <div class="accordion-body">
                 {{ ofish.recipe_notes}}
             </div>
         </div>
     </div>
-{% endfor %}
+    
 </div>
-
+{% endfor %}
 
 
 
