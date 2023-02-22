@@ -2,16 +2,42 @@
 {% block content %}
 
 <div class="container-md main-header">
-<h1 class="center-align">Red Meat Meals</h1>
-</div>
+    <h1>Red-Meat Meals</h1>
 
-<div class = "row">
-    <div class="col-12 center-align">
-        <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-lg" type="button">
-            Add Recipe <i class="fas fa-plus-square right"></i>
-        </a>
+
+    <div class = "row">
+        <div class="col-4 mx-auto gy-4">
+            <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-lg" type="button">
+                Add Recipe <i class="fas fa-plus-square right"></i>
+            </a>
+        </div>
     </div>
 </div>
+
+{% for rmeat in rmeat_recipe %}
+<div class="accordion" id="accordionExample">
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading{{ rmeat.id }}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Arr{{ rmeat.id }}"
+            aria-expanded="false" aria-controls="Arr{{ rmeat.id }}">
+                {{ rmeat.recipe_name}}  |  {{ rmeat.category}}
+            </button>
+        </h2>
+
+        <div id="body{{rmeat.id}}" class="accordion-collapse collapse show" aria-labelledby="heading{{ rmeat.id }}"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {{ rmeat.recipe_notes}}
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endfor %}
+
+
+
 
 
 
