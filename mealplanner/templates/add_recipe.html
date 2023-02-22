@@ -87,45 +87,13 @@
         <!-- cook time -->
         <div class="row mb-3">
             <div class="col-1">
-                <i class="fas fa-pencil-alt prefix"></i>
+                <i class="fas fa-pencil-alt"></i>
             </div>
-           
-            <div class="col-2">
-                <select class="form-select form-floating" id="cook_time" name="cook_time[]" aria-label="select hours for cooking time">
-                    <option value="0"selected>0 Hours</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-                
-            </div>
-            <div class="col-2">
-                <select class="form-select form-floating" id="cook_time" name="cook_time[]"  aria-label="select minutes for cooking time">
-                    <option selected value="0">0 Minutes</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                    <option value="30">30</option>
-                    <option value="35">35</option>
-                    <option value="40">40</option>
-                    <option value="45">45</option>
-                    <option value="50">50</option>
-                    <option value="55">55</option>
-                    
-                </select>
-                
-            </div>
-            <div class="col-2">
-                    <label for="cook_time" class="form-label form-floating">Cook Time</label>
+            <div class=" col-4">
+                <div class="form-floating">
+                    <input id="cook_time" name="cook_time" minlength="5" maxlength="5" type="text" class="form-control" placeholder="cook time" required>
+                    <label for="cook_time" class="form-label">Cook Time HH:MM</label>
+                </div>
             </div>
         </div>
 
@@ -137,7 +105,7 @@
             </div>
             <div class="form-check form-switch col-4">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Family-Friendly?</label>
-                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
+                <input class="form-check-input" name="family_friendly" type="checkbox" id="flexSwitchCheckDefault">
             </div>
         </div>
             <!-- healthy -->
@@ -147,7 +115,7 @@
             </div>
             <div class="form-check form-switch col-4">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Healthy?</label>
-                <input class="form-check-input " type="checkbox" id="flexSwitchCheckDefault">
+                <input class="form-check-input" name="recipe_healthy" type="checkbox" id="flexSwitchCheckDefault">
             </div>
         </div>
 

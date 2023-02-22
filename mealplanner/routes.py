@@ -35,5 +35,7 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories, cuisines=cuisines)
 
 
-"""@app.route("/oily-fish", methods=["GET", "POST"])
-def oily_fish():"""
+@app.route("/oily-fish", methods=["GET", "POST"])
+def oily_fish():
+    ofish_recipe = list(Recipe.query.order_by(Recipe.id).all())
+    return render_template("oily_fish.html", ofish_recipe=ofish_recipe)

@@ -37,6 +37,6 @@ class Recipe(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return "#{0} - Recipe: {1} | Cook: {2} mins".format(
+        return "#{0} - Recipe: {1} | Cook: {2} hrs/mins".format(
             self.id, self.recipe_name, self.cook_time
         )
