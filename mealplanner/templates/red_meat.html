@@ -14,31 +14,25 @@
     </div>
 </div>
 
-{% for rmeat in rmeat_recipe %}
+
 <div class="accordion" id="accordionExample">
-    
+    {% for rmeat in rmeat_recipe %} 
     <div class="accordion-item">
-        <h2 class="accordion-header" id="heading{{ rmeat.id }}">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Arr{{ rmeat.id }}"
-            aria-expanded="false" aria-controls="Arr{{ rmeat.id }}">
-                {{ rmeat.recipe_name}}  |  {{ rmeat.category}}
-            </button>
-        </h2>
-
-        <div id="body{{rmeat.id}}" class="accordion-collapse collapse show" aria-labelledby="heading{{ rmeat.id }}"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                {{ rmeat.recipe_notes}}
-            </div>
+      <h2 class="accordion-header" id="heading{{ loop.index }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+          {{ rmeat.recipe_name}}
+        </button>
+      </h2>
+      <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" 
+      data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            {{ rmeat.recipe_notes}}  |  {{ rmeat.cook_time}}  |  {{ rmeat.recipe_location }}  | {{ rmeat.date_added }}
         </div>
+      </div>
     </div>
-    
+    {% endfor %}
 </div>
-{% endfor %}
-
-
-
-
 
 
 {% endblock %}

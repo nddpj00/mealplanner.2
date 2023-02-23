@@ -14,27 +14,24 @@
     </div>
 </div>
 
-{% for wmeat in wmeat_recipe %}
 <div class="accordion" id="accordionExample">
-    
+    {% for wmeat in wmeat_recipe %} 
     <div class="accordion-item">
-        <h2 class="accordion-header" id="heading{{ wmeat.id }}">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Arr{{ wmeat.id }}"
-            aria-expanded="false" aria-controls="Arr{{ wmeat.id }}">
-                {{ wmeat.recipe_name}}  |  {{ wmeat.category}}
-            </button>
-        </h2>
-
-        <div id="body{{wmeat.id}}" class="accordion-collapse collapse show" aria-labelledby="heading{{ wmeat.id }}"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                {{ wmeat.recipe_notes}}
-            </div>
+      <h2 class="accordion-header" id="heading{{ loop.index }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+          {{ wmeat.recipe_name}}
+        </button>
+      </h2>
+      <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" 
+      data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            {{ wmeat.recipe_notes}}  |  {{ wmeat.cook_time}}  |  {{ wmeat.recipe_location }}  | {{ wmeat.date_added }}
         </div>
+      </div>
     </div>
-    
+    {% endfor %}
 </div>
-{% endfor %}
 
 
 

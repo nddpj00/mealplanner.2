@@ -13,27 +13,25 @@
         </div>
     </div>
 </div>
-{% for wfish in wfish_recipe %}
-<div class="accordion gy-4" id="accordionExample">
-    
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="heading{{ wfish.id }}">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Arr{{ wfish.id }}"
-            aria-expanded="false" aria-controls="Arr{{ wfish.id }}">
-                {{ wfish.recipe_name}}  |  {{ wfish.category}}
-            </button>
-        </h2>
 
-        <div id="body{{wfish.id}}" class="accordion-collapse collapse show" aria-labelledby="heading{{ wfish.id }}"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                {{ wfish.recipe_notes}}
-            </div>
+<div class="accordion" id="accordionExample">
+    {% for wfish in wfish_recipe %} 
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading{{ loop.index }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+          {{ wfish.recipe_name}}
+        </button>
+      </h2>
+      <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" 
+      data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            {{ wfish.recipe_notes}}  |  {{ wfish.cook_time}}  |  {{ wfish.recipe_location }}  | {{ wfish.date_added }}
         </div>
+      </div>
     </div>
-    
+    {% endfor %}
 </div>
-{% endfor %}
 
 
 

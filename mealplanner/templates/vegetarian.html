@@ -14,27 +14,24 @@
     </div>
 </div>
 
-{% for vegmeal in veg_recipe %}
 <div class="accordion" id="accordionExample">
-    
+    {% for vegmeal in veg_recipe %} 
     <div class="accordion-item">
-        <h2 class="accordion-header" id="heading{{ vegmeal.id }}">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Arr{{ vegmeal.id }}"
-            aria-expanded="false" aria-controls="Arr{{ vegmeal.id }}">
-                {{ vegmeal.recipe_name}}  |  {{ vegmeal.category}}
-            </button>
-        </h2>
-
-        <div id="body{{vegmeal.id}}" class="accordion-collapse collapse show" aria-labelledby="heading{{ vegmeal.id }}"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                {{ vegmeal.recipe_notes}}
-            </div>
+      <h2 class="accordion-header" id="heading{{ loop.index }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+          {{ vegmeal.recipe_name}}
+        </button>
+      </h2>
+      <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" 
+      data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            {{ vegmeal.recipe_notes}}  |  {{ vegmeal.cook_time}}  |  {{ vegmeal.recipe_location }}  | {{ vegmeal.date_added }}
         </div>
+      </div>
     </div>
-    
+    {% endfor %}
 </div>
-{% endfor %}
 
 
 

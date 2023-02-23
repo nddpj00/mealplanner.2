@@ -8,6 +8,7 @@ from sqlalchemy.sql import func
 def home():
     return render_template("categories.html")
 
+
 @app.route("/categories")
 def categories():
     return render_template("categories.html")
@@ -40,20 +41,24 @@ def vegetarian():
     veg_recipe = list(Recipe.query.filter_by(category_id=1).all())
     return render_template("vegetarian.html", veg_recipe=veg_recipe)
 
+
 @app.route("/white_meat", methods=["GET"])
 def white_meat():
     wmeat_recipe = list(Recipe.query.filter_by(category_id=2).all())
     return render_template("white_meat.html", wmeat_recipe=wmeat_recipe)
+
 
 @app.route("/red_meat", methods=["GET"])
 def red_meat():
     rmeat_recipe = list(Recipe.query.filter_by(category_id=3).all())
     return render_template("red_meat.html", rmeat_recipe=rmeat_recipe)
 
+
 @app.route("/oily-fish", methods=["GET"])
 def oily_fish():
     ofish_recipe = list(Recipe.query.filter_by(category_id=4).all())
     return render_template("oily_fish.html", ofish_recipe=ofish_recipe)
+
 
 @app.route("/white-fish", methods=["GET"])
 def white_fish():
