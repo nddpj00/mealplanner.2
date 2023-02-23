@@ -20,13 +20,23 @@
       <h2 class="accordion-header" id="heading{{ loop.index }}">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
         data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
-          {{ ofish.recipe_name}}
+          {{ ofish.recipe_name }}  |  Cook Time :{{ ofish.cook_time}}
+
+        
         </button>
       </h2>
       <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" 
       data-bs-parent="#accordionExample">
         <div class="accordion-body">
-            {{ ofish.recipe_notes}}  |  {{ ofish.cook_time}}  |  {{ ofish.recipe_location }}  | {{ ofish.date_added }}
+            {{ ofish.recipe_notes}}  |
+
+            {% if ofish.recipe_location.startswith("https") %}
+                <a href = "{{ ofish.recipe_location }}" target="_blank">click for recipe.</a> 
+            {% else %}
+                {{ ofish.recipe_location }}
+            {% endif %}
+
+             | {{ ofish.date_added }}
         </div>
       </div>
     </div>
