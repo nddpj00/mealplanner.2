@@ -27,7 +27,7 @@
       <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" 
       data-bs-parent="#accordionExample">
         <div class="accordion-body">
-            {{ rmeat.recipe_notes}}  |  {{ rmeat.cook_time}}  |  {{ rmeat.recipe_location }}  | {{ rmeat.date_added }}
+            {{ rmeat.recipe_notes}}  |  {{ rmeat.cook_time[HH:MM] }}  |  {{ rmeat.recipe_location }}  | {{ rmeat.date_added }}
         </div>
       </div>
     </div>
