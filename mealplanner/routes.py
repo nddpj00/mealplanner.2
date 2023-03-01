@@ -54,10 +54,16 @@ def edit_recipe(recipe_id):
         db.session.commit()
     return render_template("edit_recipe.html", recipe=recipe, categories=categories, cuisines=cuisines)
 
+@app.route("/delete_recipe/<int:recipe_id>")
+def delete_recipe(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
+    db.session.delete(recipe)
+    db.session.commit()
+    return redirect(url_for("home"))
+
 @app.route("/red_meat", methods=["GET"])
 def red_meat():
     rmeat_recipe = list(Recipe.query.filter_by(category_id=3).all())
-    print(rmeat_recipe)
     return render_template("red_meat.html", rmeat_recipe=rmeat_recipe)
 
 @app.route("/vegetarian", methods=["GET"])

@@ -20,7 +20,15 @@
       <h2 class="accordion-header" id="heading{{ loop.index }}">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
         data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
-          {{ ofish.recipe_name }}  |  Cook Time :{{ ofish.cook_time}}
+        {{ ofish.recipe_name}} Time Hrs/Mins : {{ofish.cook_time}}
+
+        {% if ofish.family_friendly == True %}
+        <i class="fa-solid fa-child-reaching"></i>
+        {% endif %}
+
+        {% if ofish.recipe_healthy == True %}
+        <i class="fa-solid fa-heart-pulse"></i>
+        {% endif %}
 
         
         </button>
@@ -38,7 +46,8 @@
 
              | {{ ofish.date_added }}
              <div>
-              <a href="{{ url_for('edit_recipe', recipe_id=ofish.id) }}" class="btn">Edit</a>
+              <a href="{{ url_for('edit_recipe', recipe_id=ofish.id) }}" class="btn text-success">Edit</a>
+              <a href="{{ url_for('delete_recipe', recipe_id=ofish.id) }}" class="btn text-danger">Delete</a>
             </div>
         </div>
       </div>

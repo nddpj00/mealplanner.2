@@ -57,7 +57,7 @@
         <!-- recipe cuisine -->
         <div class="row">
             <div class="col-1">
-                <i class="fas fa-folder-open prefix"></i>
+                <i class="fa-solid fa-earth-americas"></i>
             </div>
             <div class=" col-11">
                     <select id="cuisine_id" name="cuisine_id" class= "form-select mb-3" required>
@@ -78,7 +78,7 @@
         <!-- category id -->
         <div class="row">
             <div class="col-1">
-                <i class="fas fa-folder-open prefix"></i>
+                <i class="fa-solid fa-layer-group"></i>
             </div>
             <div class="col-11">
                 <select id="category_id" name="category_id" class= "form-select mb-3" required>
@@ -99,7 +99,7 @@
         <!-- cook time -->
         <div class="row mb-3">
             <div class="col-1">
-                <i class="fas fa-pencil-alt"></i>
+                <i class="fa-solid fa-clock"></i>
             </div>
             <div class=" col-4">
                 <div class="form-floating">
@@ -113,7 +113,7 @@
         <!-- family friendly -->
         <div class="row mb-4">
             <div class="col-1 ">
-                <i class="fas fa-pencil-alt prefix"></i>
+                <i class="fa-solid fa-child-reaching"></i>
             </div>
             <div class="form-check form-switch col-4">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Family-Friendly?</label>
@@ -127,11 +127,11 @@
             <!-- healthy -->
         <div class="row mb-4">
             <div class="col-1 ">
-                <i class="fas fa-pencil-alt prefix"></i>
+                <i class="fa-solid fa-heart-pulse"></i>
             </div>
             <div class="form-check form-switch col-4">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Healthy?</label>
-                {% if recipe.reciple_healthy== True %}
+                {% if recipe.recipe_healthy == True %}
                 <input class="form-check-input" name="recipe_healthy" type="checkbox" id="flexSwitchCheckDefault" checked>
                 {% else %}
                 <input class="form-check-input" name="recipe_healthy" type="checkbox" id="flexSwitchCheckDefault">
