@@ -37,6 +37,9 @@
             {% endif %}
 
              | {{ ofish.date_added }}
+             <div>
+              <a href="{{ url_for('edit_recipe', recipe_id=ofish.id) }}" class="btn">Edit</a>
+            </div>
         </div>
       </div>
     </div>

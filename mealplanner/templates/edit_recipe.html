@@ -16,7 +16,7 @@
             </div>
             <div class=" col-11">
                 <div class="form-floating">
-                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" class="form-control" placeholder=" Recipe Name" required>
+                    <input id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name }}" minlength="5" maxlength="50" type="text" class="form-control" placeholder=" Recipe Name" required>
                     <label for="recipe_name" class="form-label">Recipe Name</label>
                 </div>
             </div>
@@ -29,7 +29,9 @@
             <div class=" col-11">
                 <div class="form-floating">
                     <textarea id="recipe_notes" name="recipe_notes" minlength="5" maxlength="200"
-                        type="text" class="form-control"  placeholder="Recipe Notes" required></textarea>
+                        type="text" class="form-control"  placeholder="Recipe Notes" required>
+                        {{- recipe.recipe_notes -}}
+                    </textarea>
                     <label for="recipe_notes" class="form-label">Recipe Notes</label>
                 </div>
             </div>
@@ -43,8 +45,10 @@
             </div>
             <div class="col-11">
                 <div class="form-floating">
-                    <textarea id="recipe_location" name="recipe_location" minlength="5" maxlength="200"
-                        type="text" class="form-control" placeholder="Recipe location" required></textarea>
+                    <textarea id="recipe_location" name="recipe_location"  minlength="5" maxlength="200"
+                        type="text" class="form-control" placeholder="Recipe location" required>
+                        {{- recipe.recipe_location -}}
+                    </textarea>
                     <label for="recipe_location" class="form-label">Recipe Location, url or cookbook inc. page number</label>
                 </div>
             </div>
@@ -59,7 +63,11 @@
                     <select id="cuisine_id" name="cuisine_id" class= "form-select mb-3" required>
                         <option value="" disabled selected>Cuisine</option>
                         {% for cuisine in cuisines %}
-                        <option value="{{ cuisine.id }}">{{ cuisine.recipe_cuisine }}</option>
+                            {% if cuisine == recipe.cuisine %}
+                                <option value="{{ cuisine.id }}" selected>{{ cuisine.recipe_cuisine }}</option>
+                            {% else %}
+                                <option value="{{ cuisine.id }}">{{ cuisine.recipe_cuisine }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                     <label for="cuisine_id" class="form label"></label>
@@ -76,7 +84,11 @@
                 <select id="category_id" name="category_id" class= "form-select mb-3" required>
                     <option value="" disabled selected>Food Category</option>
                     {% for category in categories %}
+                        {% if category == recipe.category %}
+                            <option value="{{ category.id }}" selected>{{ category.food_category }}</option>
+                        {% else %}
                         <option value="{{ category.id }}">{{ category.food_category }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <label for="category_id" class="form label"></label>
@@ -91,7 +103,7 @@
             </div>
             <div class=" col-4">
                 <div class="form-floating">
-                    <input id="cook_time" name="cook_time" minlength="5" maxlength="5" type="text" class="form-control" placeholder="cook time" required>
+                    <input id="cook_time" name="cook_time" value="{{ recipe.cook_time }}" minlength="5" maxlength="5" type="text" class="form-control" placeholder="cook time" required>
                     <label for="cook_time" class="form-label">Cook Time HH:MM</label>
                 </div>
             </div>
@@ -105,7 +117,11 @@
             </div>
             <div class="form-check form-switch col-4">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Family-Friendly?</label>
-                <input class="form-check-input" name="family_friendly" type="checkbox" id="flexSwitchCheckDefault">
+                {% if recipe.family_friendly == True %}
+                    <input class="form-check-input" name="family_friendly" type="checkbox" id="flexSwitchCheckDefault" checked>
+                {% else %}
+                    <input class="form-check-input" name="family_friendly" type="checkbox" id="flexSwitchCheckDefault">
+                {% endif %}
             </div>
         </div>
             <!-- healthy -->
@@ -115,7 +131,11 @@
             </div>
             <div class="form-check form-switch col-4">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Healthy?</label>
+                {% if recipe.reciple_healthy== True %}
+                <input class="form-check-input" name="recipe_healthy" type="checkbox" id="flexSwitchCheckDefault" checked>
+                {% else %}
                 <input class="form-check-input" name="recipe_healthy" type="checkbox" id="flexSwitchCheckDefault">
+                {% endif %}
             </div>
         </div>
 

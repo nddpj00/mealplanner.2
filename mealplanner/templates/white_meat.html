@@ -26,7 +26,18 @@
       <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" 
       data-bs-parent="#accordionExample">
         <div class="accordion-body">
-            {{ wmeat.recipe_notes}}  |  {{ wmeat.cook_time}}  |  {{ wmeat.recipe_location }}  | {{ wmeat.date_added }}
+          {{ wmeat.recipe_notes}}  |
+
+          {% if wmeat.recipe_location.startswith("https") %}
+              <a href = "{{ wmeat.recipe_location }}" target="_blank">click for recipe.</a> 
+          {% else %}
+              {{ wmeat.recipe_location }}
+          {% endif %}
+
+          {{ wmeat.date_added }}
+            <div>
+              <a href="{{ url_for('edit_recipe', recipe_id=wmeat.id) }}" class="btn">Edit</a>
+            </div>
         </div>
       </div>
     </div>
