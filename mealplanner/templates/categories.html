@@ -6,70 +6,87 @@
 </div>
 
 
-<div class="container overflow-hidden">
-    <div class="row justify-content-evenly">
-        <div class="col-sm-12 col-md-6 col-lg-3 g-5">
-            <div class="card h-100 border-light">
-                <img src="./static/images/vegetable_card.jpg" class="card-img-top" alt="selection of vegetables laid out on table">
-                <div class="card-body">
-                    <h5 class="card-title">Vegetarian</h5>
-                    <p class="card-text">Vegetables are a good source of vitamins and minerals, including folate, vitamin C and potassium. 
-                        Excellent source of dietary fibre, which can help to maintain a healthy gut.  Reduce your risk of heart disease, stroke and some types of cancer.</p>
-                    <a href="{{ url_for('vegetarian') }}" class="btn">View your veggie meals!</a>
-                </div>
-            </div>
+<div class="card-group">
+
+    <div class="card border-light ">
+        <img src="./static/images/vegetable_card.jpg" class="card-img-top"
+            alt="selection of vegetables laid out on table">
+        <div class="card-body">
+            <h5 class="card-title">Vegetarian</h5>
+            <p class="card-text">Vegetables are a good source of vitamins and minerals, including folate, vitamin C and
+                potassium.
+                Excellent source of dietary fibre, which can help to maintain a healthy gut. Reduce your risk of heart
+                disease, stroke and some types of cancer.</p>
+
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 g-5">
-            <div class="card h-100 border-light">
-                <img src="./static/images/chicken_card.jpg" class="card-img-top" alt="grill pan containing a whole cooked chicken">
-                <div class="card-body">
-                    <h5 class="card-title">White Meat</h5>
-                    <p class="card-text">Chicken and turkey are a good source of lean protein, vitamins and minerals.</p>
-                    <a href="{{ url_for('white_meat')}}" class="btn">View your white meat recipes!</a>
-                </div>
-            </div>
+        <!-- Button trigger modal -->
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Get Random recipe!
+          </button>
+
+        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 g-5">
-            <div class="card h-100 border-light">
-                <img src="./static/images/red_meat_card.jpg" class="card-img-top" alt="rare steak fillet on a plate">
-                <div class="card-body">
-                    <h5 class="card-title">Red Meat</h5>
-                    <p class="card-text">Red meat provides us with iron, zinc and B vitamins. 
-                        Meat is one of the main sources of vitamin B12 in the diet. Try to limit red meat to 70g a day.</p>
-                    <a href="{{ url_for('red_meat')}}" class="btn">View your red meat recipes!</a>
-                </div>
-            </div>
+        <div class="modal-body">
+          ...
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+
+    <div class="card border-light ">
+        <img src="./static/images/chicken_card.jpg" class="card-img-top"
+            alt="grill pan containing a whole cooked chicken">
+        <div class="card-body">
+            <h5 class="card-title">White Meat</h5>
+            <p class="card-text">Chicken and turkey are a good source of lean protein, vitamins and minerals.</p>
+
+        </div>
+            <a href="{{ url_for('white_meat')}}" class="btn">Random recipe!</a>
+    </div>
+
+    <div class="card border-light ">
+        <img src="./static/images/red_meat_card.jpg" class="card-img-top" alt="rare steak fillet on a plate">
+        <div class="card-body">
+            <h5 class="card-title">Red Meat</h5>
+            <p class="card-text">Red meat provides us with iron, zinc and B vitamins.
+                Meat is one of the main sources of vitamin B12 in the diet. Try to limit red meat to 70g a day.</p>
+        </div>
+            <a href="{{ url_for('red_meat')}}" class="btn">Random recipe!</a>
+    </div>
+
+    <div class="card border-light ">
+        <img src="./static/images/oilyfish_card.jpg" class="card-img-top" alt="cooked salmon fillet on a plate">
+        <div class="card-body">
+            <h5 class="card-title">Oily-Fish</h5>
+            <p class="card-text">A balanced diet should include at least 1 portion of oily fish a week.
+                That's because fish and shellfish are good sources of many vitamins and minerals.
+                Salmon and sardines are particularly high in long-chain omega-3 fatty acids,
+                which help to keep your heart healthy.</p>
+        </div>
+            <a href="{{ url_for('oily_fish') }}" class="btn">Random recipe!</a>
+    </div>
+
+    <div class="card border-light ">
+        <img src="./static/images/white_fish_card.jpg" class="card-img-top" alt="plated fish fillet on potatoes">
+        <div class="card-body">
+            <h5 class="card-title">White Fish</h5>
+            <p class="card-text">Low in fat. some species can be a source of omega-3 fatty acids, e.g.
+                sea bass, sea bream, turbot, halibut, but at lower levels than oily fish.</p>
+        </div>
+            <a href="{{ url_for('white_fish')}}" class="btn">Random recipe!</a>
     </div>
 </div>
-
-<div class="container">
-    <div class="row justify-content-evenly">
-        <div class="col-sm-12 col-md-6 col-lg-3 g-5">
-            <div class="card h-100 border-light">
-                <img src="./static/images/oilyfish_card.jpg" class="card-img-top" alt="cooked salmon fillet on a plate">
-                <div class="card-body">
-                    <h5 class="card-title">Oily-Fish</h5>
-                    <p class="card-text">A balanced diet should include at least 1 portion of oily fish a week. 
-                        That's because fish and shellfish are good sources of many vitamins and minerals. 
-                        Salmon and sardines are particularly high in long-chain omega-3 fatty acids, 
-                        which help to keep your heart healthy.</p>
-                    <a href="{{ url_for('oily_fish') }}" class="btn">View Oily-Fish recipes!</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 g-5">
-            <div class="card h-100 border-light">
-                <img src="./static/images/white_fish_card.jpg" class="card-img-top" alt="plated fish fillet on potatoes">
-                <div class="card-body">
-                    <h5 class="card-title">White Fish</h5>
-                    <p class="card-text">Low in fat. some species can be a source of omega-3 fatty acids, e.g. 
-                        sea bass, sea bream, turbot, halibut, but at lower levels than oily fish.</p>
-                    <a href="{{ url_for('white_fish')}}" class="btn">View White-Fish recipes!</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 {% endblock %}
