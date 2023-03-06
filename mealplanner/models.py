@@ -25,7 +25,7 @@ class Cuisine(db.Model):
 class Recipe(db.Model):
     # schema for the Recipe model
     id = db.Column(db.Integer, primary_key=True)
-    recipe_name = db.Column(db.String(50), unique=True, nullable=False)
+    recipe_name = db.Column(db.String(100), unique=True, nullable=False)
     recipe_notes = db.Column(db.Text, nullable=False)
     cook_time = db.Column(db.Interval, nullable=False)
     recipe_location = db.Column(db.Text, nullable=False)

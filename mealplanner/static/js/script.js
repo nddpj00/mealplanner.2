@@ -1,5 +1,9 @@
-function randomRecipe(getRandomRecipe) {
-    console.log("hello")
-    var randomRecipeOutput = getRandomRecipe[Math.floor(Math.random() * getRandomRecipe.length)];
-    document.getElementById('vegModalHeader').value = randomRecipeOutput;
+// when random recipe modal is closed this reloads page to allow another random selection
+
+let buttons = document.querySelectorAll(".pageRefresh");
+
+for(let i = 0; i < buttons.length; i++){
+buttons[i].addEventListener('click', function() {
+    location.reload();
+});
 }

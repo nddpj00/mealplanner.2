@@ -1,6 +1,6 @@
 from datetime import timedelta
 import random
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from mealplanner import app, db, models
 from mealplanner.models import Category, Recipe, Cuisine
 from sqlalchemy.sql import func
@@ -36,7 +36,8 @@ def add_recipe():
         )
         db.session.add(recipe)
         db.session.commit()
-        return redirect(url_for("home"))
+        flash('Recipe successfully added')
+        return redirect(request.referrer)
     return render_template("add_recipe.html", categories=categories, cuisines=cuisines)
 
 @app.route("/edit_recipe/<int:recipe_id>", methods=["GET", "POST"])
@@ -60,9 +61,12 @@ def edit_recipe(recipe_id):
 @app.route("/delete_recipe/<int:recipe_id>")
 def delete_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
+    
     db.session.delete(recipe)
     db.session.commit()
-    return redirect(url_for("home"))
+
+    flash('Recipe successfully deleted')
+    return redirect(request.referrer)
 
 @app.route("/red_meat", methods=["GET"])
 def red_meat():
