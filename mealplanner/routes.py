@@ -1,8 +1,10 @@
 from datetime import timedelta
+import random
 from flask import render_template, request, redirect, url_for
 from mealplanner import app, db, models
 from mealplanner.models import Category, Recipe, Cuisine
 from sqlalchemy.sql import func
+
 
 
 @app.route("/")
@@ -12,7 +14,8 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    veg_recipe = list(Recipe.query.filter_by(category_id=1).all())
+    return render_template("categories.html", veg_recipe=veg_recipe)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])

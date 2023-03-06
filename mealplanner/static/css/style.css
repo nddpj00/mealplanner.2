@@ -29,7 +29,8 @@ margin-right: 60px;
 
 
 .main-header {
-    margin-top: 12vh;
+    margin-top: 13vh;
+    margin-bottom: 6vh;
     text-align: center;
     font-family: 'Volkhov', serif;
 }
@@ -47,6 +48,9 @@ margin-right: 60px;
     background-color: #f5f5f2;
 }
 
+.card{
+    border-width: 5px;
+}
 
 .btn{
     background-color: #d9ca0c;
