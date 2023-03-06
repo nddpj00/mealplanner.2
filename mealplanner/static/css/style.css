@@ -54,6 +54,8 @@ margin-right: 60px;
 
 .btn{
     background-color: #d9ca0c;
+    color: black;
+    border-color: #d9ca0c;
 }
 
 /* add recipe page */
@@ -75,4 +77,8 @@ margin-right: 60px;
 
 .accordion{
     margin-top: 30px;
+}
+
+.accordion-button{
+    background-color: #d9ca0c;
 }
