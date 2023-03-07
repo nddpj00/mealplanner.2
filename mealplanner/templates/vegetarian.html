@@ -2,40 +2,37 @@
 {% block content %}
 
 <div class="container-md main-header">
-    <h1>Vegetarian Meals</h1>
+  <h1>Vegetarian Recipes</h1>
 
 
-    <div class = "row">
-        <div class="col-4 mx-auto gy-4">
-            <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-lg" type="button">
-                Add Recipe <i class="fas fa-plus-square right"></i>
-            </a>
-        </div>
+  <div class="row">
+    <div class="col-4 mx-auto gy-4">
+      <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-lg" type="button">
+        Add Recipe <i class="fas fa-plus-square right"></i>
+      </a>
     </div>
+  </div>
 </div>
 
 
-<div class="container"></div>
-
   <div class="row icon-key justify-content-end">
-      <div class="col-md-6">
+    <div class="col-md-6">
       <i class="fa-solid fa-child-reaching"></i> = Family Friendly
       <i class="fa-solid fa-heart-pulse"></i> = Healthy
-      </div>
+    </div>
   </div>
 
 
   <div class="accordion" id="accordionExample">
     {% for vegmeal in veg_recipe %}
     <div class="accordion-item">
-
       <h2 class="accordion-header " id="heading{{ loop.index }}">
-        <button class="accordion-button collapsed" type="button"
-          data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false"
-          aria-controls="collapse{{ loop.index }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
           <div class="col-8 recipe-name">
             {{ vegmeal.recipe_name}}
           </div>
+
           <!-- Formats cook time to display hrs/mins and remove seconds. -->
 
           {% set  cook_time_hours = vegmeal.cook_time.total_seconds() // 3600 %}
@@ -100,20 +97,18 @@
     </div>
     {% endfor %}
     <!-- Flash message to confirm deletion -->
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul class=flashes>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
+    <div>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+    </div>
   </div>
-
-</div>
-
-
 
 
 {% endblock %}

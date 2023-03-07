@@ -45,8 +45,8 @@ def edit_recipe(recipe_id):
     categories = list(Category.query.order_by(Category.food_category).all())
     cuisines = list(Cuisine.query.order_by(Cuisine.recipe_cuisine).all())
     if request.method == "POST":
-        recipe.recipe_name = request.form.get("recipe_name")
-        recipe.recipe_notes = request.form.get("recipe_notes")
+        recipe.recipe_name = request.form.get("recipe_name").capitalize()
+        recipe.recipe_notes = request.form.get("recipe_notes").capitalize()
         recipe.cook_time = request.form.get("cook_time")
         recipe.recipe_location = request.form.get("recipe_location")
         recipe.family_friendly = bool(True if request.form.get("family_friendly") else False)
