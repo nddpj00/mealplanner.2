@@ -37,7 +37,6 @@ def add_recipe():
         db.session.add(recipe)
         db.session.commit()
         flash('Recipe successfully added')
-        return redirect(request.referrer)
     return render_template("add_recipe.html", categories=categories, cuisines=cuisines)
 
 @app.route("/edit_recipe/<int:recipe_id>", methods=["GET", "POST"])
@@ -56,15 +55,14 @@ def edit_recipe(recipe_id):
         recipe.category_id = request.form.get("category_id")
         recipe.cuisine_id = request.form.get("cuisine_id")
         db.session.commit()
+        flash('Recipe successfully updated')
     return render_template("edit_recipe.html", recipe=recipe, categories=categories, cuisines=cuisines)
 
 @app.route("/delete_recipe/<int:recipe_id>")
 def delete_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
-    
     db.session.delete(recipe)
     db.session.commit()
-
     flash('Recipe successfully deleted')
     return redirect(request.referrer)
 

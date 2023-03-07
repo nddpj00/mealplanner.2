@@ -146,6 +146,18 @@
                 Edit Recipe <i class="fas fa-plus-square right"></i>
             </button>
         </div>
+        <div>
+            <!-- Flash message to confirm update -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
 
 
         
