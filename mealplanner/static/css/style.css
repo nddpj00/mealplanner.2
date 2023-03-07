@@ -5,7 +5,7 @@ body {
 }
 
 .navbar{
-    background-color: #d9ca0c!important;
+    background-color: #D9C24E!important;
 }
 
 .navbar-toggler{
@@ -45,7 +45,7 @@ margin-right: 60px;
 
 .card-body{
     text-align: center;
-    background-color: #f5f5f2;
+    background-color: #F2F2F2;
 }
 
 .card{
@@ -53,9 +53,9 @@ margin-right: 60px;
 }
 
 .btn{
-    background-color: #d9ca0c;
+    background-color: #D9C24E;
     color: black;
-    border-color: #d9ca0c;
+    border-color: #D9C24E;
 }
 
 /* add recipe page */
@@ -76,9 +76,40 @@ margin-right: 60px;
 /* recipe - base */
 
 .accordion{
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 .accordion-button{
-    background-color: #d9ca0c;
+    background-color: #D9C24E;
 }
+
+.accordion-body{
+    background-color: #F2F2F2;
+}
+
+.icon-key i{
+    margin-left: 15px;
+    margin-right: 6px;
+    font-size: 18px;
+
+    
+}
+
+.icon-key{
+    font-family: 'Volkhov', serif;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.recipe-name{
+    font-family: 'Volkhov', serif;
+    font-size: 18px;
+}
+
+.recipe-icons{
+    text-align: right;
+    padding-right: 8px;
+}
+
+
