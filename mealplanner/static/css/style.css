@@ -87,6 +87,10 @@ margin-right: 60px;
     text-align: center;
 }
 
+.form-switch{
+    padding-left: 53px;
+}
+
 
 /* recipe - base */
 
@@ -131,7 +135,7 @@ margin-right: 60px;
 }
 
 .flashes{
-    color: white;
+    color: black;
 }
 
 

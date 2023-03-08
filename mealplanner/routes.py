@@ -7,6 +7,7 @@ from sqlalchemy.sql import func
 
 
 
+
 @app.route("/")
 def home():
     veg_recipe = list(Recipe.query.filter_by(category_id=1).all())
@@ -15,7 +16,6 @@ def home():
     ofish_recipe = list(Recipe.query.filter_by(category_id=4).all())
     wfish_recipe = list(Recipe.query.filter_by(category_id=5).all())
     return render_template("categories.html", veg_recipe=veg_recipe, wmeat_recipe=wmeat_recipe, rmeat_recipe=rmeat_recipe, ofish_recipe=ofish_recipe, wfish_recipe=wfish_recipe )
-
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -34,6 +34,9 @@ def add_recipe():
             category_id=request.form.get("category_id"),
             cuisine_id=request.form.get("cuisine_id")
         )
+        if recipe.cook_time[3] > 5:
+            flash('Input less minutes than  60')
+        
         db.session.add(recipe)
         db.session.commit()
         flash('Recipe successfully added')
@@ -93,6 +96,9 @@ def oily_fish():
 def white_fish():
     wfish_recipe = list(Recipe.query.filter_by(category_id=5).all())
     return render_template("white_fish.html", wfish_recipe=wfish_recipe)
+
+
+
 
 """
 @app.route('/recipe/<int:id>')

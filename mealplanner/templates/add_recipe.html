@@ -8,7 +8,7 @@
 
 
 <div class="container" id="recipeCont">
-    <form class="row g-3" method="POST" action="{{ url_for('add_recipe') }}">
+    <form class="row g-3 needs-validation" novalidate method="POST" action="{{ url_for('add_recipe') }}">
         <!-- recipe name -->
         <div class="row mb-3">
             <div class="col-1">
@@ -22,6 +22,10 @@
                 </div>
             </div>
         </div>
+        <div class="valid-feedback">
+            Looks good!
+          </div>
+        
         <!-- recipe notes -->
         <div class="row mb-3">
             <div class="col-1">
@@ -35,6 +39,9 @@
                 </div>
             </div>
         </div>
+        <div class="valid-feedback">
+            Looks good!
+          </div>
 
 
         <!-- recipe location -->
@@ -51,6 +58,9 @@
                 </div>
             </div>
         </div>
+        <div class="valid-feedback">
+            Looks good!
+          </div>
 
         <!-- recipe cuisine -->
         <div class="row">
@@ -67,6 +77,9 @@
                 <label for="cuisine_id" class="form label"></label>
             </div>
         </div>
+        <div class="valid-feedback">
+            Looks good!
+          </div>
 
 
         <!-- category id -->
@@ -82,8 +95,9 @@
                     {% endfor %}
                 </select>
                 <label for="category_id" class="form label"></label>
-            </div>
+            </div> 
         </div>
+        
 
 
         <!-- cook time -->
@@ -107,8 +121,8 @@
                 <i class="fa-solid fa-child-reaching"></i>
             </div>
             <div class="form-check form-switch col-4">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Family-Friendly?</label>
-                <input class="form-check-input" name="family_friendly" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="family_friendly">Family-Friendly?</label>
+                <input class="form-check-input" name="family_friendly" type="checkbox" id="family_friendly">
             </div>
         </div>
         <!-- healthy -->
@@ -117,8 +131,8 @@
                 <i class="fa-solid fa-heart-pulse"></i>
             </div>
             <div class="form-check form-switch col-4">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Healthy?</label>
-                <input class="form-check-input" name="recipe_healthy" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="recipe_healthy">Healthy?</label>
+                <input class="form-check-input" name="recipe_healthy" type="checkbox" id="recipe_healthy">
             </div>
         </div>
 
