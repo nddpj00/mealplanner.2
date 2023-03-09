@@ -22,11 +22,12 @@ def home():
 def add_recipe():
     categories = list(Category.query.order_by(Category.food_category).all())
     cuisines = list(Cuisine.query.order_by(Cuisine.recipe_cuisine).all())
+    d=timedelta()
     if request.method == "POST":
         recipe = Recipe(
             recipe_name=request.form.get("recipe_name").capitalize(),
             recipe_notes=request.form.get("recipe_notes").capitalize(),
-            cook_time=int(request.form.get("cook_time")),
+            cook_time=request.form.get("cook_time"),
             recipe_location=request.form.get("recipe_location"),
             family_friendly=bool(True if request.form.get("family_friendly") else False),
             recipe_healthy=bool(True if request.form.get("recipe_healthy") else False),
@@ -34,9 +35,6 @@ def add_recipe():
             category_id=request.form.get("category_id"),
             cuisine_id=request.form.get("cuisine_id")
         )
-        if recipe.cook_time.mins > 60:
-            flash('Input less minutes than  60')
-        
         db.session.add(recipe)
         db.session.commit()
         flash('Recipe successfully added')

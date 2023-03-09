@@ -21,6 +21,7 @@ body {
 
 i {
     color: #E0475B;
+    font-size: 19px;
 }
 
 .navbar-logo{
@@ -113,6 +114,15 @@ margin-right: 60px;
     background-color: #E0475B!important;
 }
 
+.brand-footer {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+
 /* add recipe page */
 
 #recipeCont{
@@ -150,6 +160,10 @@ margin-right: 60px;
     color: white;
 }
 
+.accordion-button:not(.collapsed) i{
+    color: white;
+}
+
 .accordion-body{
     background-color: #F8EFEA;
 }
@@ -160,7 +174,6 @@ margin-right: 60px;
     margin-right: 6px;
     font-size: 18px;
 
-    
 }
 
 .icon-key{
@@ -181,8 +194,10 @@ margin-right: 60px;
     padding-right: 8px;
 }
 
+
 .flashes{
-    color: black;
+    color: #E0475B;
+    font-size: 20px;
 }
 
 

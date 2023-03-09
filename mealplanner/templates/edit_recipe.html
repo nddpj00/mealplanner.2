@@ -17,7 +17,7 @@
             <div class=" col-11">
                 <div class="form-floating">
                     <input id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name }}" minlength="5"
-                        maxlength="50" type="text" class="form-control" placeholder=" Recipe Name" required>
+                        maxlength="300" type="text" class="form-control" placeholder=" Recipe Name" required>
                     <label for="recipe_name" class="form-label">Recipe Name</label>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             </div>
             <div class=" col-11">
                 <div class="form-floating">
-                    <textarea id="recipe_notes" name="recipe_notes" minlength="5" maxlength="200" type="text"
+                    <textarea id="recipe_notes" name="recipe_notes" minlength="5" maxlength="300" type="text"
                         class="form-control" placeholder="Recipe Notes" required>
                         {{- recipe.recipe_notes -}}
                     </textarea>
@@ -148,7 +148,7 @@
         <!-- edit button -->
         <div class="d-grid col-6 mx-auto">
             <button type="submit" class="btn btn-lg">
-                Edit Recipe <i class="fas fa-plus-square right"></i>
+                Save changes <i class="fas fa-plus-square right"></i>
             </button>
             <div>
                 <!-- Flash message to confirm recipe updated -->
