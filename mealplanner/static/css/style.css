@@ -6,8 +6,8 @@ body {
 }
 
 .navbar{
-    background-color:#ce5f5c!important;
-    color:white!important;
+    background-color:#DED369!important;
+    color:black!important;
 }
 
 .navbar-toggler{
@@ -15,14 +15,23 @@ body {
 }
 
 .navbar a{
-    color:white !important;
+    color:black !important;
+}
+
+.navbar i {
+    color: #E0475B;
+}
+
+.navbar-logo{
+    margin-left: 20px;
 }
 
 .navbar-brand{
-    margin-left: 35px;
-    font-family: 'Volkhov', serif;
-    font-size: 20px;
-    color:white !important;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 22px;
+    color:black !important;
 }
 
 .nav-link{
@@ -35,11 +44,20 @@ margin-right: 60px;
 }
 
 .dropdown-menu.show {
-    background-color: #ce5f5c;
+    background-color: #DED369;
 }
 
 .offcanvas-body{
-    background-color: #ce5f5c;
+    background-color: #DED369;
+}
+
+.offcanvas-header{
+    background-color: whitesmoke;
+    font-family: 'Fredoka One', cursive;
+}
+
+.dropdown-menu.show{
+    background-color: whitesmoke;
 }
 
 
@@ -60,7 +78,7 @@ margin-right: 60px;
 
 .card-body{
     text-align: center;
-    background-color: #f9e2d6;
+    background-color: #F8EFEA;
 }
 
 .card{
@@ -68,9 +86,13 @@ margin-right: 60px;
 }
 
 .btn{
-    background-color: #ce5f5c;
-    color: white;
-    border-color: #ce5f5c;
+    background-color: #DED369;
+    color: black;
+    border-color: #DED369;
+}
+
+.button:hover{
+    background-color: #E0475B;
 }
 
 /* add recipe page */
@@ -100,12 +122,12 @@ margin-right: 60px;
 }
 
 .accordion-button{
-    background-color: #ce5f5c;
-    color: white;
+    background-color: #DED369;
+    color: black;
 }
 
 .accordion-body{
-    background-color: #f9e2d6;
+    background-color: #F8EFEA;
 }
 
 
@@ -138,4 +160,13 @@ margin-right: 60px;
     color: black;
 }
 
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 400px) {
+
+.navbar-toggler {
+    margin-right: 0px;
+}
+
+}
 

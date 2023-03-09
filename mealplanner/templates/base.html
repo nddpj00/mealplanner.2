@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Volkhov&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Volkhov&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -22,7 +22,12 @@
     <header>
         <!--////////////////////////////////////////////////////Off canvas Bootstrap 5 Navigational Bar  ////////////-->
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-            <a class="navbar-brand" href="{{ url_for('home')}}">Balanced Diet Recipe Finder</a>
+            <div class="navbar-logo">
+            <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+            <a class="navbar-brand" href="{{ url_for('home')}}">Balanced Diet Recipe Finder</a>   
+            <i class="fa fa-cutlery fa-2x " aria-hidden="true"></i>
+            </div>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
                 aria-controls="navbarOffcanvasLg">
                 <span class="navbar-toggler-icon"></span>
@@ -37,7 +42,7 @@
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{  url_for('home') }}">Food
-                                Categories</a>
+                                Groups</a>
                         </li>
                         <li class="nav-item">
                             <a class=nav-link aria-current="page" href="{{ url_for('add_recipe') }}">Add recipe</a>

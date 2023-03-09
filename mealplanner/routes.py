@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import time, timedelta
 import random
 from flask import render_template, request, redirect, url_for, flash
 from mealplanner import app, db, models
@@ -26,7 +26,7 @@ def add_recipe():
         recipe = Recipe(
             recipe_name=request.form.get("recipe_name").capitalize(),
             recipe_notes=request.form.get("recipe_notes").capitalize(),
-            cook_time=request.form.get("cook_time"),
+            cook_time=int(request.form.get("cook_time")),
             recipe_location=request.form.get("recipe_location"),
             family_friendly=bool(True if request.form.get("family_friendly") else False),
             recipe_healthy=bool(True if request.form.get("recipe_healthy") else False),
@@ -34,7 +34,7 @@ def add_recipe():
             category_id=request.form.get("category_id"),
             cuisine_id=request.form.get("cuisine_id")
         )
-        if recipe.cook_time[3] > 5:
+        if recipe.cook_time.mins > 60:
             flash('Input less minutes than  60')
         
         db.session.add(recipe)
@@ -99,14 +99,3 @@ def white_fish():
 
 
 
-
-"""
-@app.route('/recipe/<int:id>')
-def show_recipe(id):
-    recipe = models.Recipe.query.get_or_404(id)
-    cook_time_hours = int(recipe.cook_time.total_seconds() // 3600)
-    cook_time_minutes = int((recipe.cook_time.total_seconds() // 60) % 60)
-    cook_time_formatted = f"{cook_time_hours:02d}:{cook_time_minutes:02d}"
-    return render_template('recipe.html', recipe=recipe, cook_time_formatted=cook_time_formatted)
-
-"""
