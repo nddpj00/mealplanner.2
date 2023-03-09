@@ -11,14 +11,15 @@ body {
 }
 
 .navbar-toggler{
-    margin-right:16px ;
+    margin-right:16px;
 }
+
 
 .navbar a{
     color:black !important;
 }
 
-.navbar i {
+i {
     color: #E0475B;
 }
 
@@ -27,11 +28,10 @@ body {
 }
 
 .navbar-brand{
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
     font-family: 'Fredoka One', cursive;
-    font-size: 22px;
-    color:black !important;
+    font-size: 28px;
 }
 
 .nav-link{
@@ -42,6 +42,15 @@ body {
 .dropdown {
 margin-right: 60px;
 }
+
+.dropdown-menu a:hover{
+    background-color: #DED369;
+}
+
+
+.dropdown-item {
+    font-family: 'Volkhov', serif;
+    }
 
 .dropdown-menu.show {
     background-color: #DED369;
@@ -81,8 +90,17 @@ margin-right: 60px;
     background-color: #F8EFEA;
 }
 
+.card-text{
+    font-size: 15px;
+}
+
+.card-body button{
+    font-family: 'Volkhov', serif;
+}
+
 .card{
     border-width: 5px;
+    font-family: 'Volkhov', serif;
 }
 
 .btn{
@@ -91,8 +109,8 @@ margin-right: 60px;
     border-color: #DED369;
 }
 
-.button:hover{
-    background-color: #E0475B;
+.btn:hover {
+    background-color: #E0475B!important;
 }
 
 /* add recipe page */
@@ -126,6 +144,12 @@ margin-right: 60px;
     color: black;
 }
 
+.accordion-button:not(.collapsed){
+    background-color: #E0475B;
+    border-color: #E0475B;
+    color: white;
+}
+
 .accordion-body{
     background-color: #F8EFEA;
 }
@@ -148,8 +172,9 @@ margin-right: 60px;
 
 .recipe-name{
     font-family: 'Volkhov', serif;
-    font-size: 18px;
+    font-size: 20px;
 }
+
 
 .recipe-icons{
     text-align: right;
@@ -161,12 +186,5 @@ margin-right: 60px;
 }
 
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 400px) {
 
-.navbar-toggler {
-    margin-right: 0px;
-}
-
-}
 

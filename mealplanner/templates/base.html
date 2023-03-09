@@ -23,9 +23,9 @@
         <!--////////////////////////////////////////////////////Off canvas Bootstrap 5 Navigational Bar  ////////////-->
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
             <div class="navbar-logo">
-            <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+            <i class="fas fa-pepper-hot fa-2x" aria-hidden="true"></i>
             <a class="navbar-brand" href="{{ url_for('home')}}">Balanced Diet Recipe Finder</a>   
-            <i class="fa fa-cutlery fa-2x " aria-hidden="true"></i>
+            <i class="fas fa-pepper-hot fa-2x fa-flip-horizontal" aria-hidden="true"></i>
             </div>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
@@ -41,8 +41,7 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{  url_for('home') }}">Food
-                                Groups</a>
+                            <a class="nav-link" aria-current="page" href="{{  url_for('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class=nav-link aria-current="page" href="{{ url_for('add_recipe') }}">Add recipe</a>
