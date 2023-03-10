@@ -15,7 +15,8 @@ def home():
     rmeat_recipe = list(Recipe.query.filter_by(category_id=3).all())
     ofish_recipe = list(Recipe.query.filter_by(category_id=4).all())
     wfish_recipe = list(Recipe.query.filter_by(category_id=5).all())
-    return render_template("categories.html", veg_recipe=veg_recipe, wmeat_recipe=wmeat_recipe, rmeat_recipe=rmeat_recipe, ofish_recipe=ofish_recipe, wfish_recipe=wfish_recipe )
+    return render_template("categories.html", veg_recipe=veg_recipe, wmeat_recipe=wmeat_recipe, 
+    rmeat_recipe=rmeat_recipe, ofish_recipe=ofish_recipe, wfish_recipe=wfish_recipe )
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])

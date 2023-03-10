@@ -21,11 +21,11 @@
     </div>
     <!-- Button trigger modal -->
 
-    <button type="button" class="btn" onclick="{%  set random_vegmeal=veg_recipe|random %}" data-bs-toggle="modal"
+    <button type="button" class="btn"  data-bs-toggle="modal"
       data-bs-target="#randomVegModal">
       Get Random recipe!
     </button>
-
+    {% set random_vegmeal=veg_recipe|random %}
     <!-- Veg Meal Modal -->
     <div class="modal fade" id="randomVegModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="randomVegModal" aria-hidden="true">
