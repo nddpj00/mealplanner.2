@@ -10,12 +10,12 @@ from sqlalchemy.sql import func
 
 @app.route("/")    
 def home():
-    veg_recipe = list(Recipe.query.filter_by(category_id=1).all())
+    random_vegmeal = random.choice(list(Recipe.query.filter_by(category_id=1).all()))
     wmeat_recipe = list(Recipe.query.filter_by(category_id=2).all())
     rmeat_recipe = list(Recipe.query.filter_by(category_id=3).all())
     ofish_recipe = list(Recipe.query.filter_by(category_id=4).all())
     wfish_recipe = list(Recipe.query.filter_by(category_id=5).all())
-    return render_template("categories.html", veg_recipe=veg_recipe, wmeat_recipe=wmeat_recipe, 
+    return render_template("categories.html", random_vegmeal=random_vegmeal, wmeat_recipe=wmeat_recipe, 
     rmeat_recipe=rmeat_recipe, ofish_recipe=ofish_recipe, wfish_recipe=wfish_recipe)
 
 
