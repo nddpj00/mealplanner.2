@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 if os.path.exists("env.py"):
-    import env  # noqa
+import env  # noqa
 
 
 app = Flask(__name__)
@@ -18,4 +18,4 @@ else:
 
 db = SQLAlchemy(app)
 
-from taskmanager import routes  # noqa d
+from mealplanner import routes  # noqa d
