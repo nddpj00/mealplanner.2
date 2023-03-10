@@ -123,6 +123,10 @@ margin-right: 60px;
     color: black;
 }
 
+.modal-header .btn-close{
+    visibility: hidden;
+}
+
 /* add recipe page */
 
 #recipeCont{
@@ -169,6 +173,7 @@ margin-right: 60px;
 }
 
 
+
 .icon-key i{
     margin-left: 15px;
     margin-right: 6px;
@@ -198,6 +203,17 @@ margin-right: 60px;
 .flashes{
     color: #E0475B;
     font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+
+.nomobile {
+    display:none;
+}
+
+.navbar-brand{
+    font-size: 18px;
+}
 }
 
 

@@ -25,8 +25,8 @@ def add_recipe():
     d=timedelta()
     if request.method == "POST":
         recipe = Recipe(
-            recipe_name=request.form.get("recipe_name").capitalize(),
-            recipe_notes=request.form.get("recipe_notes").capitalize(),
+            recipe_name=request.form.get("recipe_name").title(),
+            recipe_notes=request.form.get("recipe_notes"),
             cook_time=request.form.get("cook_time"),
             recipe_location=request.form.get("recipe_location"),
             family_friendly=bool(True if request.form.get("family_friendly") else False),
@@ -46,8 +46,8 @@ def edit_recipe(recipe_id):
     categories = list(Category.query.order_by(Category.food_category).all())
     cuisines = list(Cuisine.query.order_by(Cuisine.recipe_cuisine).all())
     if request.method == "POST":
-        recipe.recipe_name = request.form.get("recipe_name").capitalize()
-        recipe.recipe_notes = request.form.get("recipe_notes").capitalize()
+        recipe.recipe_name = request.form.get("recipe_name").title()
+        recipe.recipe_notes = request.form.get("recipe_notes")
         recipe.cook_time = request.form.get("cook_time")
         recipe.recipe_location = request.form.get("recipe_location")
         recipe.family_friendly = bool(True if request.form.get("family_friendly") else False)
