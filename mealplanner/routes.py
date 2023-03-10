@@ -10,7 +10,7 @@ from sqlalchemy.sql import func
 
 @app.route("/")    
 def home():
-    random_vegmeal = random.choice(list(Recipe.query.filter_by(category_id=1).all()))
+    random_vegmeal = random.choice(Recipe.query.filter_by(category_id=1).all())
     wmeat_recipe = list(Recipe.query.filter_by(category_id=2).all())
     rmeat_recipe = list(Recipe.query.filter_by(category_id=3).all())
     ofish_recipe = list(Recipe.query.filter_by(category_id=4).all())
