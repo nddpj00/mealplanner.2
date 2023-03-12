@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="container-md main-header">
-<h1 class="center-align">Food Groups</h1>
+  <h1 class="center-align">Food Groups</h1>
 </div>
 
 
@@ -21,46 +21,65 @@
     </div>
     <!-- Button trigger modal -->
 
-    <button type="button" class="btn btn-primary" onclick="{%  set random_vegmeal=veg_recipe|random %}" data-bs-toggle="modal" data-bs-target="#randomVegModal">
+    <button type="button" class="btn btn-primary" onclick="{%  set random_vegmeal = veg_recipe|random %}"
+      data-bs-toggle="modal" data-bs-target="#randomVegModal">
       Get Random recipe!
     </button>
 
     <!-- Veg Meal Modal -->
     {% if random_vegmeal %}
-    <div class="modal fade" id="randomVegModal" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" aria-labelledby="randomVegModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="randomVegModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="randomVegModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="vegModalHeader">
-              {{ random_vegmeal.recipe_name }}
-              {% if random_vegmeal.family_friendly == True %}
-              <i class="fa-solid fa-child-reaching"></i>
-              {% endif %}
+            <div class="container">
+              <div class="row">
+                <div class="col-10">
+                  <h5 class="modal-title" id="vegModalHeader">
+                    {{ random_vegmeal.recipe_name }}
+                  </h5>
+                </div>
+                <div class="col-1 ms-auto">
+                  {% if random_vegmeal.family_friendly == True %}
+                  <i class="fa-solid fa-child-reaching"></i>
+                  {% endif %}
 
-              {% if random_vegmeal.recipe_healthy == True %}
-              <i class="fa-solid fa-heart-pulse"></i>
-              {% endif %}
-            </h5>
+                  {% if random_vegmeal.recipe_healthy == True %}
+                  <i class="fa-solid fa-heart-pulse"></i>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            {{ random_vegmeal.recipe_notes}}
-            <!-- if location starts with url apply click -->
-            {% if random_vegmeal.recipe_location.startswith("https") %}
-            <a href="{{ random_vegmeal.recipe_location }}" target="_blank">click for recipe.</a>
-            {% else %}
-            {{ random_vegmeal.recipe_location }}
-            {% endif %}
-          </div>
-              
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary pageRefresh"  data-bs-dismiss="modal">Close</button>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8">
+                  {{ random_vegmeal.recipe_notes}}
+                </div>
+                <div class="col-md-4 ms-auto">
+                  <!-- if location starts with url apply click -->
+                  {% if random_vegmeal.recipe_location.startswith("https") %}
+                  <a href="{{ random_vegmeal.recipe_location }}" target="_blank">click for recipe.</a>
+                  {% else %}
+                  {{ random_vegmeal.recipe_location }}
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary pageRefresh" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
-  {% endif %}
+
 
   <!-- White Meat Meal Card, Button and Modal -->
   <div class="card border-light ">
@@ -69,41 +88,57 @@
       <h5 class="card-title">White Meat</h5>
       <p class="card-text">Chicken and turkey are a good source of lean protein, vitamins and minerals.</p>
     </div>
-    <button type="button" class="btn btn-primary" onclick="{%  set random_wmeat = wmeat_recipe|random %}"  data-bs-toggle="modal" data-bs-target="#randomWmeatModal">
+    <button type="button" class="btn" onclick="{% set random_wmeat = wmeat_recipe|random %}" data-bs-toggle="modal"
+      data-bs-target="#randomWmeatModal">
       Get Random recipe!
     </button>
 
     {% if random_wmeat %}
     <!-- White Meat Meal Modal -->
     <div class="modal fade" id="randomWmeatModal" tabindex="-1" aria-labelledby="randomWmeatModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="wmeatModalHeader">
+            <div class="container">
+              <div class="row">
+                <div class="col-10">
+                  <h5 class="modal-title" id="wmeatModalHeader">
+                    {{ random_wmeat.recipe_name }}
+                  </h5>
+                </div>
+                <div class="col-1 ms-auto">
+                  {% if random_wmeat.family_friendly == True %}
+                  <i class="fa-solid fa-child-reaching"></i>
+                  {% endif %}
 
-              <!-- Get random recipe and displays name, healthy, family and notes -->
-              {{ random_wmeat.recipe_name }}
-              {% if random_wmeat.family_friendly == True %}
-              <i class="fa-solid fa-child-reaching"></i>
-              {% endif %}
-
-              {% if random_wmeat.recipe_healthy == True %}
-              <i class="fa-solid fa-heart-pulse"></i>
-              {% endif %}
-            </h5>
+                  {% if random_wmeat.recipe_healthy == True %}
+                  <i class="fa-solid fa-heart-pulse"></i>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            {{ random_wmeat.recipe_notes}}
-            <!-- if location starts with url apply click -->
-            {% if random_wmeat.recipe_location.startswith("https") %}
-            <a href="{{ random_wmeat.recipe_location }}" target="_blank">click for recipe.</a>
-            {% else %}
-            {{ random_wmeat.recipe_location }}
-            {% endif %}
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary pageRefresh" data-bs-dismiss="modal">Close</button>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8">
+                  {{ random_wmeat.recipe_notes}}
+                </div>
+                <div class="col-md-4 ms-auto">
+                  <!-- if location starts with url apply click -->
+                  {% if random_wmeat.recipe_location.startswith("https") %}
+                  <a href="{{ random_wmeat.recipe_location }}" target="_blank">click for recipe.</a>
+                  {% else %}
+                  {{ random_wmeat.recipe_location }}
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary pageRefresh" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -113,158 +148,208 @@
 
 
 
-<!-- Red Meat Meal Card, Button and Modal -->
-<div class="card border-light ">
-  <img src="./static/images/red_meat_card.jpg" class="card-img-top" alt="rare steak fillet on a plate">
-  <div class="card-body">
-    <h5 class="card-title">Red Meat</h5>
-    <p class="card-text">Red meat provides us with iron, zinc and B vitamins.
-      Meat is one of the main sources of vitamin B12 in the diet. Try to limit red meat to 70g a day.</p>
+  <!-- Red Meat Meal Card, Button and Modal -->
+  <div class="card border-light ">
+    <img src="./static/images/red_meat_card.jpg" class="card-img-top" alt="rare steak fillet on a plate">
+    <div class="card-body">
+      <h5 class="card-title">Red Meat</h5>
+      <p class="card-text">Red meat provides us with iron, zinc and B vitamins.
+        Meat is one of the main sources of vitamin B12 in the diet. Try to limit red meat to 70g a day.</p>
 
-  </div>
-  <button type="button" class="btn btn-primary" onclick="{%  set random_rmeat=rmeat_recipe|random %}"  data-bs-toggle="modal" data-bs-target="#randomRmeatModal">
-    Get Random recipe!
-  </button>
+    </div>
+    <button type="button" class="btn" onclick="{%  set random_rmeat = rmeat_recipe|random %}" data-bs-toggle="modal"
+      data-bs-target="#randomRmeatModal">
+      Get Random recipe!
+    </button>
 
-  <!-- Red Meat Meal Modal -->
-  {% if random_rmeant %}
-  <div class="modal fade" id="randomRmeatModal" tabindex="-1" aria-labelledby="randomRmeatModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="rmeatModalHeader">
+    <!-- Red Meat Meal Modal -->
+    {% if random_rmeat %}
+    <div class="modal fade" id="randomRmeatModal" tabindex="-1" aria-labelledby="randomRmeatModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="container">
+              <div class="row">
+                <div class="col-10">
+                  <h5 class="modal-title" id="rmeatModalHeader">
+                    {{ random_rmeat.recipe_name }}
+                    <!-- Get random recipe and displays name, healthy, family and notes -->
+                  </h5>
+                </div>
+                <div class="col-1 ms-auto">
+                  {% if random_rmeat.family_friendly == True %}
+                  <i class="fa-solid fa-child-reaching"></i>
+                  {% endif %}
 
-            <!-- Get random recipe and displays name, healthy, family and notes -->
-            {{ random_rmeat.recipe_name }}
-            {% if random_rmeat.family_friendly == True %}
-            <i class="fa-solid fa-child-reaching"></i>
-            {% endif %}
+                  {% if random_rmeat.recipe_healthy == True %}
+                  <i class="fa-solid fa-heart-pulse"></i>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8">
+                  {{ random_rmeat.recipe_notes}}
+                </div>
+                <div class="col-md-4 ms-auto">
+                  <!-- if location starts with url apply click -->
+                  {% if random_rmeat.recipe_location.startswith("https") %}
+                  <a href="{{ random_rmeat.recipe_location }}" target="_blank">click for recipe.</a>
+                  {% else %}
+                  {{ random_rmeat.recipe_location }}
+                  {% endif %}
+                </div>
+              </div>
 
-            {% if random_rmeat.recipe_healthy == True %}
-            <i class="fa-solid fa-heart-pulse"></i>
-            {% endif %}
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          {{ random_rmeat.recipe_notes}}
-          <!-- if location starts with url apply click -->
-          {% if random_rmeat.recipe_location.startswith("https") %}
-          <a href="{{ random_rmeat.recipe_location }}" target="_blank">click for recipe.</a>
-          {% else %}
-          {{ random_rmeat.recipe_location }}
-          {% endif %}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary pageRefresh"  data-bs-dismiss="modal">Close</button>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary pageRefresh" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
-  {% endif %}
-</div>
 
-<!-- Oily-Fish Meal Card, Button and Modal -->
-<div class="card border-light ">
-  <img src="./static/images/oilyfish_card.jpg" class="card-img-top" alt="cooked salmon fillet on a plate">
-  <div class="card-body">
-    <h5 class="card-title">Oily-Fish</h5>
-    <p class="card-text">A balanced diet should include at least 1 portion of oily fish a week.
-      That's because fish and shellfish are good sources of many vitamins and minerals.
-      Salmon and sardines are particularly high in long-chain omega-3 fatty acids,
-      which help to keep your heart healthy.</p>
+  <!-- Oily-Fish Meal Card, Button and Modal -->
+  <div class="card border-light ">
+    <img src="./static/images/oilyfish_card.jpg" class="card-img-top" alt="cooked salmon fillet on a plate">
+    <div class="card-body">
+      <h5 class="card-title">Oily-Fish</h5>
+      <p class="card-text">A balanced diet should include at least 1 portion of oily fish a week.
+        That's because fish and shellfish are good sources of many vitamins and minerals.
+        Salmon and sardines are particularly high in long-chain omega-3 fatty acids,
+        which help to keep your heart healthy.</p>
+    </div>
+    <button type="button" class="btn" onclick="{%  set random_ofish = ofish_recipe|random %}" data-bs-toggle="modal"
+      data-bs-target="#randomOfishModal">
+      Get Random recipe!
+    </button>
 
-  </div>
-  <button type="button" class="btn btn-primary" onclick="{%  set random_ofish=ofish_recipe|random %}"  data-bs-toggle="modal" data-bs-target="#randomOfishModal">
-    Get Random recipe!
-  </button>
+    <!-- Oily-Fish Meal Modal -->
+    {% if random_ofish %}
+    <div class="modal fade" id="randomOfishModal" tabindex="-1" aria-labelledby="randomOfishModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="container">
+              <div class="row">
+                <div class="col-10">
+                  <h5 class="modal-title" id="ofishModalHeader">
+                    {{ random_ofish.recipe_name }}
+                  </h5>
+                </div>
+                <div class="col-1 ms-auto">
+                  {% if random_ofish.family_friendly == True %}
+                  <i class="fa-solid fa-child-reaching"></i>
+                  {% endif %}
 
-  <!-- Oily-Fish Meal Modal -->
-  {% if random_ofish %}
-  <div class="modal fade" id="randomOfishModal" tabindex="-1" aria-labelledby="randomOfishModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ofishModalHeader">
+                  {% if random_ofish.recipe_healthy == True %}
+                  <i class="fa-solid fa-heart-pulse"></i>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
 
-            <!-- Get random recipe and displays name, healthy, family and notes -->
-            {{ random_ofish.recipe_name }}
-            {% if random_ofish.family_friendly == True %}
-            <i class="fa-solid fa-child-reaching"></i>
-            {% endif %}
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8">
+                  {{ random_ofish.recipe_notes}}
+                </div>
+                <div class="col-md-4 ms-auto">
+                  <!-- if location starts with url apply click -->
+                  {% if random_ofish.recipe_location.startswith("https") %}
+                  <a href="{{ random_ofish.recipe_location }}" target="_blank">click for recipe.</a>
+                  {% else %}
+                  {{ random_ofish.recipe_location }}
+                  {% endif %}
+                </div>
+              </div>
 
-            {% if random_ofish.recipe_healthy == True %}
-            <i class="fa-solid fa-heart-pulse"></i>
-            {% endif %}
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          {{ random_ofish.recipe_notes}}
-          <!-- if location starts with url apply click -->
-          {% if random_ofish.recipe_location.startswith("https") %}
-          <a href="{{ random_ofish.recipe_location }}" target="_blank">click for recipe.</a>
-          {% else %}
-          {{ random_ofish.recipe_location }}
-          {% endif %}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary pageRefresh"  data-bs-dismiss="modal">Close</button>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary pageRefresh" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
-  {% endif %}
-</div>
 
-<!-- White-Fish Meal Card, Button and Modal -->
-<div class="card border-light ">
-  <img src="./static/images/white_fish_card.jpg" class="card-img-top" alt="plated fish fillet on potatoes">
-  <div class="card-body">
-    <h5 class="card-title">White-Fish</h5>
-    <p class="card-text">Low in fat. some species can be a source of omega-3 fatty acids, e.g.
-      sea bass, sea bream, turbot, halibut, but at lower levels than oily fish.</p>
+  <!-- White-Fish Meal Card, Button and Modal -->
+  <div class="card border-light ">
+    <img src="./static/images/white_fish_card.jpg" class="card-img-top" alt="plated fish fillet on potatoes">
+    <div class="card-body">
+      <h5 class="card-title">White-Fish</h5>
+      <p class="card-text">Low in fat. some species can be a source of omega-3 fatty acids, e.g.
+        sea bass, sea bream, turbot, halibut, but at lower levels than oily fish.</p>
 
-  </div>
-  <button type="button" class="btn btn-primary" onclick="{%  set random_wfish=wfish_recipe|random %}"  data-bs-toggle="modal" data-bs-target="#randomWfishModal">
-    Get Random recipe!
-  </button>
+    </div>
+    <button type="button" class="btn" onclick="{%  set random_wfish = wfish_recipe|random %}" data-bs-toggle="modal"
+      data-bs-target="#randomWfishModal">
+      Get Random recipe!
+    </button>
 
-  <!-- White-Fish Meal Modal -->
-  {% if random_wfish %}
-  <div class="modal fade" id="randomWfishModal" tabindex="-1" aria-labelledby="randomWfishModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="wfishModalHeader">
+    <!-- White-Fish Meal Modal -->
+    {% if random_wfish %}
+    <div class="modal fade" id="randomWfishModal" tabindex="-1" aria-labelledby="randomWfishModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="container">
+              <div class="row">
+                <div class="col-10">
 
-            <!-- Get random recipe and displays name, healthy, family and notes -->
-            {{ random_wfish.recipe_name }}
-            {% if random_wfish.family_friendly == True %}
-            <i class="fa-solid fa-child-reaching"></i>
-            {% endif %}
+                  <h5 class="modal-title" id="wfishModalHeader">
+                    {{ random_wfish.recipe_name }}
+                  </h5>
+                </div>
+                <div class="col-1 ms-auto">
+                  {% if random_wfish.family_friendly == True %}
+                  <i class="fa-solid fa-child-reaching"></i>
+                  {% endif %}
 
-            {% if random_wfish.recipe_healthy == True %}
-            <i class="fa-solid fa-heart-pulse"></i>
-            {% endif %}
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          {{ random_wfish.recipe_notes}}
-          <!-- if location starts with url apply click -->
-          {% if random_wfish.recipe_location.startswith("https") %}
-          <a href="{{ random_wfish.recipe_location }}" target="_blank">click for recipe.</a>
-          {% else %}
-          {{ random_wfish.recipe_location }}
-          {% endif %}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary pageRefresh"  data-bs-dismiss="modal">Close</button>
+                  {% if random_wfish.recipe_healthy == True %}
+                  <i class="fa-solid fa-heart-pulse"></i>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8">
+                  {{ random_wfish.recipe_notes}}
+                </div>
+                <div class="col-md-4 ms-auto">
+                  <!-- if location starts with url apply click -->
+                  {% if random_wfish.recipe_location.startswith("https") %}
+                  <a href="{{ random_wfish.recipe_location }}" target="_blank">click for recipe.</a>
+                  {% else %}
+                  {{ random_wfish.recipe_location }}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary pageRefresh" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
-  {% endif %}
-</div>
-{% endblock %}
+  {% endblock %}
